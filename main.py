@@ -115,8 +115,7 @@ def processa_voz(update: Update, context):
     os.remove(file_path)
     os.remove(wav_path)
 
-def run():
-    db.conectar()
+def main():
     TOKEN = os.getenv("TOKEN")
     updater = Updater(TOKEN, use_context=True)
     dp = updater.dispatcher
@@ -131,3 +130,7 @@ def run():
 
     updater.start_polling()
     updater.idle()
+
+if __name__ == '__main__':
+    db.conectar()
+    main()
