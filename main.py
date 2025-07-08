@@ -34,9 +34,10 @@ def extrato(update, context):
         update.message.reply_text("Nenhum gasto registrado.")
         return
 
-    texto = "🧾 *Últimos Gastos:*
+ texto = "🧾 *Últimos Gastos:*\n\n"
 
-"
+
+
     for valor, categoria, data in registros:
         texto += f"• R${valor:.2f} - {categoria} ({data})\n"
     update.message.reply_text(texto, parse_mode='Markdown')
