@@ -34,10 +34,7 @@ def extrato(update, context):
         update.message.reply_text("Nenhum gasto registrado.")
         return
 
- texto = "🧾 *Últimos Gastos:*\n\n"
-
-
-
+    texto = "🧾 *Últimos Gastos:*\n\n"
     for valor, categoria, data in registros:
         texto += f"• R${valor:.2f} - {categoria} ({data})\n"
     update.message.reply_text(texto, parse_mode='Markdown')
@@ -119,7 +116,7 @@ def processa_voz(update: Update, context):
     os.remove(wav_path)
 
 def main():
-    TOKEN = 8110643967:AAGRM_LZbixHNFAFe_m0bK5WAk1O_67CvBg
+    TOKEN = os.getenv("TOKEN")
     updater = Updater(TOKEN, use_context=True)
     dp = updater.dispatcher
 
